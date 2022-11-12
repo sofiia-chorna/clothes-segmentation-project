@@ -37,7 +37,6 @@ if __name__ == '__main__':
 
     uploaded_file = st.file_uploader("Choose an image...")
 
-    segmentator = None
     if uploaded_file is not None:  # if user uploaded file
         st.image(uploaded_file, caption='Input Image', use_column_width=True)
 
@@ -56,5 +55,7 @@ if __name__ == '__main__':
 
         segmentator = Segmentator(path)
 
-    result_file = segmentator.get_dress()
+    with st.spinner('Processing the image...'):
+        result_file = segmentator.get_dress()
+
     st.image(result_file, caption='Clothes Segmentation', use_column_width=True)
