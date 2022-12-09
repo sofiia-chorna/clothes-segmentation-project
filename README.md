@@ -12,11 +12,8 @@ This project involved using Deep Convolutional Neural network to create a machin
 * Streamlit
 ```
 
-## Future direcitons
-I have several ideas to improve this project:
-* Add explanations for how the CNN works depending on user selection of dropbox
-* If predicted confidence is under some threshold, say something about not being sure about the prediction
-* Potentially have a stacked model where the first model predicts if the image is a clothes or not - if not, do something funny to the user for trying to trick me
+## Results
+ ![](result.png)
 
 ## Installation
 
@@ -38,4 +35,8 @@ I have several ideas to improve this project:
    http://localhost:8501
    ```
 
-   
+## Future direcitons
+I have several ideas to improve this project:
+* Add explanations for how the CNN works depending on user selection of dropbox
+* If predicted confidence is under some threshold, say something about not being sure about the prediction
+* Potentially have a stacked model where the first model predicts if the image is a clothes or not - if not, do something funny to the user for trying to trick me
