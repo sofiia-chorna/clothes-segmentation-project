@@ -8,6 +8,7 @@ from matplotlib.patches import Polygon
 import matplotlib.patheffects as PathEffects
 from skimage.measure import find_contours
 
+from PIL import Image
 
 def random_colors(N, bright=True):
     """
@@ -113,7 +114,23 @@ def display_instances(image, boxes, masks, class_ids, class_names, figsize=(16, 
                 ax.add_patch(p)
     ax.imshow(masked_image.astype(np.uint8))
     plt.savefig("result.png")
+    crop("result.png")
 
+
+def crop(filename):
+    file = Image.open(filename)
+    # Setting the points for cropped image
+    left = 460
+    top = 200
+    right = 1210
+    bottom = 1420
+
+    # Cropped image of above dimension
+    # (It will not change original image)
+    im1 = file.crop((left, top, right, bottom))
+
+    # Save the image
+    im1.save(filename)
 
 def rotate_bbox(bbox, angle, size):
     """
