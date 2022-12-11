@@ -35,7 +35,7 @@ def apply_mask(image, mask, color, alpha=0.5):
 def display_instances(image, boxes, masks, class_ids, class_names, figsize=(16, 16),
                       scores=None, title="", ax=None,
                       show_mask=True, show_bbox=True,
-                      colors=None, captions=None, confidence=0.8):
+                      colors=None, captions=None, confidence=0.7):
     """
     boxes: [num_instance, (y1, x1, y2, x2, class_id)] in image coordinates.
     masks: [height, width, num_instances]
@@ -75,8 +75,8 @@ def display_instances(image, boxes, masks, class_ids, class_names, figsize=(16, 
                 continue
             y1, x1, y2, x2 = boxes[i]
             if show_bbox:
-                p = patches.Rectangle((x1, y1), x2 - x1, y2 - y1, linewidth=2,
-                                      alpha=0.7, linestyle="dashed",
+                p = patches.Rectangle((x1, y1), x2 - x1, y2 - y1, linewidth=3,
+                                      alpha=0.8, linestyle='dashed',
                                       edgecolor=color, facecolor='none')
                 ax.add_patch(p)
 
@@ -93,8 +93,8 @@ def display_instances(image, boxes, masks, class_ids, class_names, figsize=(16, 
             # manipulate h, l, s values and return as rgb
             text_color = colorsys.hls_to_rgb(h, min(1, l * 1.1), s=s)
             t = ax.text(0.5 * (x1 + x2), 0.5 * (y1 + y2), caption, horizontalalignment='center',
-                        verticalalignment='center', color=text_color, size=25)
-            t.set_path_effects([PathEffects.withStroke(linewidth=5, foreground='black')])
+                        verticalalignment='center', color=text_color, size=28)
+            t.set_path_effects([PathEffects.withStroke(linewidth=6, foreground='black')])
 
             # Mask
             mask = masks[:, :, i]
@@ -110,7 +110,7 @@ def display_instances(image, boxes, masks, class_ids, class_names, figsize=(16, 
             contours = find_contours(padded_mask, 0.5)
             for verts in contours:
                 verts = np.fliplr(verts) - 1
-                p = Polygon(verts, facecolor="none", edgecolor=color)
+                p = Polygon(verts, facecolor="none", edgecolor='black')
                 ax.add_patch(p)
     ax.imshow(masked_image.astype(np.uint8))
     plt.savefig("result.png")

@@ -1,0 +1,10 @@
+imgurpython==1.1.7
+matplotlib==3.6.2
+numpy==1.23.4
+opencv_python==4.6.0.66
+Pillow==9.3.0
+requests==2.28.1
+scikit_image==0.19.3
+streamlit==1.14.1
+torch==1.13.0
+torchvision==0.14.0

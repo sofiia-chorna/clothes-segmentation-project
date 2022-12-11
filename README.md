@@ -7,7 +7,6 @@ This project involved using Deep Convolutional Neural network to create a machin
 ```
 * Python
 * Pytorch
-* Tensorflow
 * Matprotlib
 * Streamlit
 ```
@@ -24,13 +23,24 @@ This project involved using Deep Convolutional Neural network to create a machin
     ```
 
 2. Install the required packages.
-3. To run the application from the command line (terminal) in the project folder, run:
 
     ```
-    streamlit run  app.py
+    pip install -r requirements.txt
+    ```
+   
+3. In the command line (terminal) go to the ```src``` folder:
+
+    ```
+    cd /* path to src folder */
+    ```
+   
+4. To run the application from the command line (terminal) in the project folder, run:
+
+    ```
+    streamlit run app.py
     ```
 
-4. View the application in your default browser by navigating to the following URL:
+5. View the application in your default browser by navigating to the following URL:
     ``` 
    http://localhost:8501
    ```

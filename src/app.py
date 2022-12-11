@@ -43,7 +43,7 @@ if __name__ == '__main__':
     all_image_files = load_s3_file_structure()
     n_classes = len(config['all_classes'])
     activation = 'sigmoid'
-    model = torch.load(config['models'], map_location=torch.device('cpu'))
+    model = torch.load(config['model'], map_location=torch.device('cpu'))
     for param in model.parameters():
         param.requires_grad = False
     model.eval()

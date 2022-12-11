@@ -65,6 +65,6 @@ config = {
         44: 'sequin',
         45: 'tassel'
     },
-    'models': 'models/maskrcnn_checkpoint_8_epoch.pth',
+    'model': '../model/maskrcnn_checkpoint_8_epoch.pth',
     'DEVICE': 'cpu'
 }
